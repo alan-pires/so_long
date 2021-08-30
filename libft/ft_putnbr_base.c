@@ -6,11 +6,11 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/27 15:36:07 by apires-d          #+#    #+#             */
-/*   Updated: 2021/07/14 11:36:49 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/08/30 12:45:21 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "libft.h"
 
 static void	show_number(char *base, int nbr, unsigned int str_len)
 {

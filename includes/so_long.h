@@ -3,6 +3,15 @@
 #include "../mlx_linux/mlx.h"
 #include "../libft/libft.h"
 
+# define BLOCK 50
+
+typedef struct s_map
+{
+	int		column;
+	int		line;
+	char	**ref;
+}	t_map;
+
 typedef struct s_window
 {
 	void	*ref;
@@ -31,8 +40,12 @@ typedef struct	s_game
 	t_sprite	collect;
 	t_sprite	wall;
 	t_sprite	empty;
+	t_map		map;
 
 }	t_game;
+
+void	game_start(t_game *game, int argc, char **argv);
+int		check_map(t_game *game);
 
 
 # endif

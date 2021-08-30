@@ -12,7 +12,9 @@ MLX_DIR = mlx_linux
 MLX = mlx_linux/libmlx.a
 
 SRC_DIR = srcs
-SRC = $(SRC_DIR)/main.c
+SRC = $(SRC_DIR)/main.c\
+		$(SRC_DIR)/game_map.c\
+		$(SRC_DIR)/game_start.c
 
 INCLUDE_DIR = includes
 INCLUDE = includes/so_long.h
