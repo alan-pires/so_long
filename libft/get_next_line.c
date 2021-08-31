@@ -6,13 +6,11 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 17:25:08 by apires-d          #+#    #+#             */
-/*   Updated: 2021/08/29 12:37:18 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/08/30 23:30:23 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* TESTE TESTE TESTE TESTE TESTE TESTE TESTE TESTE TEST */
-
-#include "get_next_line.h"
+#include "libft.h"
 
 static void	ft_free(char **p)
 {
@@ -62,7 +60,7 @@ static int	ft_init_content(char **content)
 	return (0);
 }
 
-ssize_t	ft_bytes_read(int *fd, char *buff, ssize_t *r)
+static ssize_t	ft_bytes_read(int *fd, char *buff, ssize_t *r)
 {
 	*r = read(*fd, buff, BUFFER_SIZE);
 	return (*r);

@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 11:46:26 by apires-d          #+#    #+#             */
-/*   Updated: 2021/08/30 12:43:03 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/08/30 13:03:16 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	init_win(t_game *game)
 void	game_start(t_game *game, int argc, char **argv)
 {
 	// check arguments...
-	check_map(game);
+	check_map(game, argv);
 	init_win(game);
 	
 	mlx_loop(game->mlx);
