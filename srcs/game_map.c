@@ -6,13 +6,13 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 12:06:30 by apires-d          #+#    #+#             */
-/*   Updated: 2021/08/31 14:20:34 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/08/31 14:44:44 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-static int	count_lines(char **argv)
+static int	count_lc(t_game *game, char **argv)
 {
 	char	*line;
 	int		i;
@@ -22,8 +22,10 @@ static int	count_lines(char **argv)
 	i = 0;
 	while (get_next_line(fd, &line))
 		i++;
+	game->map.lines = i;
+	game->map.cols = ft_strlen(line);
 	close(fd);
-	return (i);
+	return (0);
 }
 
 int	check_map(t_game *game, char **argv)
@@ -31,11 +33,14 @@ int	check_map(t_game *game, char **argv)
 	char	**array;
 	int		i = 0;
 	int		fd;
-	int		lines;
-	int		cols;
 	
-	lines = count_lines(argv);
-	array = malloc(sizeof(char *) * lines + 1);
+	count_lc(game, argv);
+	
+	// FAZER MALLOC DOS ARRAYS DENTRO DO ARRAY MAIOR PAREI AQUI....
+	game->map.array = malloc(sizeof(char *) * game->map.lines);
+	while ()
+	
+	array = malloc(sizeof(char *) * game->map.cols + 1);
 	if (!array)
 		return (0);
 
@@ -45,12 +50,12 @@ int	check_map(t_game *game, char **argv)
 	while (i < lines)
 	{
 		get_next_line(fd, &array[i]);
-		printf("%s\n", array[i]);
+		// game->map.array[i] = ft_strjoin(game->map.array[i], array[i]);
+		
+		printf("%s\n", game->map.array[i]);
 		i++;
 	}
 	cols = (int)ft_strlen(array[0]);
-	game->map.column = cols;
-	game->map.line = lines;
 	
 	// check if all the lines are the same size...
 	

@@ -9,8 +9,8 @@
 
 typedef struct s_map
 {
-	int		column;
-	int		line;
+	int		cols;
+	int		lines;
 	char	**array;
 	char	*ref;
 }	t_map;
