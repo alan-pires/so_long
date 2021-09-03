@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 12:06:30 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/03 15:41:46 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/03 15:42:15 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ static int	check_imgtypes(t_game *game)
 		return (0);
 	return (1);
 }
-
 
 static int	init_array_lc(t_game *game, char **argv)
 {
