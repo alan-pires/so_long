@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 11:46:26 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/03 09:28:33 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/03 19:17:01 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,11 @@ void	game_start(t_game *game, int argc, char **argv)
 	check_args(argc);
 	check_map(game, argv);
 	init_win(game);
-	
+	//dpois fazer funçao para as inicializações:
+	game->pos.x = 0;
+	game->pos.y = 0;
+	//game_display(game);
+	//depois criar função para tratar os loopings
+	mlx_loop_hook(game->mlx, *game_display, game);
 	mlx_loop(game->mlx);
 }

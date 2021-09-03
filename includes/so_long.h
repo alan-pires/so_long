@@ -6,6 +6,17 @@
 # include <stdio.h>
 
 # define BLOCK 50
+# define PLAYER "sprites/player.xpm"
+# define EMPTY "sprites/empty.xpm"
+# define EXIT "sprites/out.xpm"
+# define COLLECT "sprites/collect.xpm"
+# define WALL "sprites/wall.xpm"
+
+typedef struct s_pos
+{
+	int	x;
+	int	y;
+}	t_pos;
 
 typedef struct s_map
 {
@@ -13,7 +24,7 @@ typedef struct s_map
 	int		lines;
 	char	**array;
 	char	*ref;
-	
+
 }	t_map;
 
 typedef struct s_window
@@ -28,14 +39,13 @@ typedef struct	s_sprite
 	void	*ref;
 	int		width;
 	int		height;
-	char	*pixels;
+	int		*pixels;
 	int		bpp;
 	int		line_size;
 	int		endian;
-	int		quant;
 	char	type[10];
-	//int	posx;
-	//int	posy;
+	int		posx;
+	int		posy;
 }	t_sprite;
 
 typedef struct	s_game
@@ -46,12 +56,13 @@ typedef struct	s_game
 	t_sprite	collect;
 	t_sprite	wall;
 	t_sprite	empty;
+	t_sprite	exit;
 	t_map		map;
-
+	t_pos		pos;
 }	t_game;
 
 void	game_start(t_game *game, int argc, char **argv);
 int		check_map(t_game *game, char **argv);
-
+int		game_display(t_game *game);
 
 # endif
