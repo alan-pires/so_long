@@ -13,6 +13,7 @@ typedef struct s_map
 	int		lines;
 	char	**array;
 	char	*ref;
+	
 }	t_map;
 
 typedef struct s_window

@@ -6,13 +6,67 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 12:06:30 by apires-d          #+#    #+#             */
-/*   Updated: 2021/08/31 17:34:06 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/03 12:04:45 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-static int	count_lc(t_game *game, char **argv)
+static void	alloc_array(t_game *game)
+{
+	int	i;
+
+	i = 0;
+	game->map.array = malloc(sizeof(char *) * game->map.lines + 1);
+	if (game->map.array)
+	{
+		while (i < game->map.lines)
+		{
+			game->map.array[i] = malloc(sizeof(char *) * game->map.cols + 1);
+			if (game->map.array[i])
+				i++;
+		}		
+	}
+}
+
+static int	hastype(t_game *game, char type)
+{
+	int		i;
+	char	**aux;
+
+	aux = NULL;
+	i = 0;
+	aux = malloc(sizeof(char *) * game->map.lines + 1);
+	if (aux)
+	{
+		while (i < game->map.lines)
+		{
+			aux[i] = malloc(sizeof(char *) * game->map.cols + 1);
+			if (aux[i])
+				i++;
+		}
+	}
+	
+	i = 0;
+	while (i++ < game->map.lines)
+		aux[i] = ft_strchr(game->map.array[i], type);
+	while (i >= 0)
+		if (aux[i])
+			return (1);
+	return (0);
+}
+
+static int	check_imgtypes(t_game *game)
+{
+	if (hastype(game, '1') == 0 || hastype(game, '1') == 0
+		|| hastype(game, '1') == 0 || hastype(game, '1') == 0
+		|| hastype(game, '1') == 0)
+		return (0);
+	return (1);
+}
+
+
+static int	init_array_lc(t_game *game, char **argv)
 {
 	char	*line;
 	int		i;
@@ -25,37 +79,30 @@ static int	count_lc(t_game *game, char **argv)
 	game->map.lines = i;
 	game->map.cols = ft_strlen(line);
 	close(fd);
+	//free(line);
 	return (0);
 }
 
+
 int	check_map(t_game *game, char **argv)
 {
-	int		i;
-	int		fd;
+	int	i;
+	int	fd;
 	
 	i = 0;
-	count_lc(game, argv);
-	
-	// FAZER MALLOC DOS ARRAYS DENTRO DO ARRAY MAIOR PAREI AQUI....
-	game->map.array = malloc(sizeof(char *) * game->map.lines + 1);
-	if (!game->map.array)
-		return (0);
-	while (i < game->map.lines)
-	{
-		game->map.array[i] = malloc(sizeof(char *) * game->map.cols + 1);
-		i++;
-	}
-	i = 0;	
-
-	// check if there are the minimal number of blocks of each type
-	
+	init_array_lc(game, argv);
+	alloc_array(game);
 	fd = open(argv[1], O_RDONLY);
 	while (i < game->map.lines)
 	{
 		get_next_line(fd, &game->map.array[i]);
-
 		printf("%s\n", game->map.array[i]);
 		i++;
+	}
+	if (check_imgtypes(game) == 0)
+	{
+		printf("Invalid Map... It needs to contain all necessary type of sprites");
+		exit (0);
 	}	
 	// check if all the lines are the same size...
 	
