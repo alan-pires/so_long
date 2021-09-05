@@ -63,6 +63,9 @@ typedef struct	s_game
 	t_sprite	empty;
 	t_sprite	exit;
 	t_map		map;
+	int			collected;
+	int			steps;
+	
 }	t_game;
 
 void	game_start(t_game *game, int argc, char **argv);

@@ -6,13 +6,11 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 08:45:11 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/05 17:01:28 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/05 19:48:44 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-
-static void	init_player_pos(t_game *game);
 
 void	init_imgs(t_game *game)
 {
@@ -26,28 +24,4 @@ void	init_imgs(t_game *game)
 	game->collect.pixels = (int *)mlx_get_data_addr(game->collect.ref, &game->collect.bpp, &game->collect.line_size, &game->collect.endian);
 	game->exit.ref = mlx_xpm_file_to_image(game->mlx, EXIT, &game->exit.width, &game->exit.height);
 	game->exit.pixels = (int *)mlx_get_data_addr(game->exit.ref, &game->exit.bpp, &game->exit.line_size, &game->exit.endian);
-	init_player_pos(game);
-}
-
-static void	init_player_pos(t_game *game)
-{
-	int i;
-	int j;
-	
-	i = 0;
-	j = 0;
-	while (i < game->map.lines)
-	{
-		j = 0;
-		while (j < game->map.cols)
-		{
-			if (game->map.array[i][j] == 'P')
-			{
-				game->player.pos.x = i;
-				game->player.pos.y = j;
-			}
-			j++;
-		}
-		i++;
-	}
 }
