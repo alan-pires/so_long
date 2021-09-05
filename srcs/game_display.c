@@ -6,32 +6,14 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 17:51:17 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/05 15:26:47 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/05 17:17:54 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-static void	display_sprite(t_game *game, t_sprite *sprite, t_pos pos)
-{
-	sprite->pos.x = pos.x * BLOCK;
-	sprite->pos.y = pos.y * BLOCK;
-	mlx_put_image_to_window(game->mlx, game->window.ref, sprite->ref, sprite->pos.x, sprite->pos.y);
-}
-
-static void	check_sprite(t_game *game, char sprite, t_pos pos)
-{
-	if (sprite == '1')
-		display_sprite(game, &game->wall, pos);
-	else if (sprite == '0')
-		display_sprite(game, &game->empty, pos);
-	else if (sprite == 'C')
-		display_sprite(game, &game->collect, pos);
-	else if (sprite == 'P')
-		display_sprite(game, &game->player, pos);
-	else if (sprite == 'E')
-		display_sprite(game, &game->exit, pos);
-}
+static void	display_sprite(t_game *game, t_sprite *sprite, t_pos pos);
+static void	check_sprite(t_game *game, char sprite, t_pos pos);
 
 int	game_display(t_game *game)
 {
@@ -53,4 +35,25 @@ int	game_display(t_game *game)
 		i++;
 	}
 	return (0);
+}
+
+static void	check_sprite(t_game *game, char sprite, t_pos pos)
+{
+	if (sprite == '1')
+		display_sprite(game, &game->wall, pos);
+	else if (sprite == '0')
+		display_sprite(game, &game->empty, pos);
+	else if (sprite == 'C')
+		display_sprite(game, &game->collect, pos);
+	else if (sprite == 'P')
+		display_sprite(game, &game->player, pos);
+	else if (sprite == 'E')
+		display_sprite(game, &game->exit, pos);
+}
+
+static void	display_sprite(t_game *game, t_sprite *sprite, t_pos pos)
+{
+	sprite->pos.x = pos.x * BLOCK;
+	sprite->pos.y = pos.y * BLOCK;
+	mlx_put_image_to_window(game->mlx, game->window.ref, sprite->ref, sprite->pos.x, sprite->pos.y);
 }
