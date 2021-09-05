@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 12:06:30 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/03 15:42:15 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/05 14:08:43 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@ static void	alloc_array(t_game *game)
 	int	i;
 
 	i = 0;
-	game->map.array = malloc(sizeof(char *) * game->map.lines + 1);
+	game->map.array = malloc(sizeof(char *) * game->map.lines);
 	if (game->map.array)
 	{
 		while (i < game->map.lines)
 		{
-			game->map.array[i] = malloc(sizeof(char *) * game->map.cols + 1);
+			game->map.array[i] = malloc(sizeof(char *) * game->map.cols);
 			if (game->map.array[i])
 				i++;
-		}		
+		}
 	}
 }
 
@@ -36,12 +36,12 @@ static int	hastype(t_game *game, char type) // dar os frees necessários
 
 	aux = NULL;
 	i = 0;
-	aux = malloc(sizeof(char *) * game->map.lines + 1);
+	aux = malloc(sizeof(char *) * game->map.lines);
 	if (aux)
 	{
 		while (i < game->map.lines)
 		{
-			aux[i] = malloc(sizeof(char *) * game->map.cols + 1);
+			aux[i] = malloc(sizeof(char *) * game->map.cols);
 			if (aux[i])
 				i++;
 		}
@@ -74,7 +74,7 @@ static int	init_array_lc(t_game *game, char **argv)
 	i = 0;
 	while (get_next_line(fd, &line))
 		i++;
-	game->map.lines = i;
+	game->map.lines = i + 1;
 	game->map.cols = ft_strlen(line);
 	close(fd);
 	//free(line);

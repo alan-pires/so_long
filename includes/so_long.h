@@ -11,6 +11,11 @@
 # define EXIT "sprites/exit.xpm"
 # define COLLECT "sprites/collect.xpm"
 # define WALL "sprites/wall.xpm"
+# define ESC 0xff1b
+# define RIGHT 0x64
+# define LEFT 0x61
+# define UP 0x77
+# define DOWN 0x73
 
 typedef struct s_pos
 {
@@ -64,5 +69,6 @@ void	game_start(t_game *game, int argc, char **argv);
 int		check_map(t_game *game, char **argv);
 int		game_display(t_game *game);
 void	init_imgs(t_game *game);
+int		ft_move(int key, void *param);
 
 # endif
