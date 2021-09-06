@@ -50,6 +50,7 @@ typedef struct	s_sprite
 	int		endian;
 	char	type[10];
 	t_pos	pos;
+	int		animate;
 
 }	t_sprite;
 
@@ -75,5 +76,6 @@ void	init_imgs(t_game *game);
 int		ft_move(int key, void *param);
 void	check_exit(t_game *game);
 void	check_map_errors(t_game *game);
+void	walk_animat(t_game *g, char *img1, char *img2);
 
 # endif
