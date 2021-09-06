@@ -6,20 +6,20 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 11:46:26 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/06 13:19:58 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/06 14:44:08 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-static void	check_args(int argc);
+static void	check_args(int argc, char **argv);
 static void	init_win(t_game *game);
 static void	init_game_opt(t_game *game);
-static int	exit_game(t_game *game);
+static int	exit_game();
 
 void	game_start(t_game *game, int argc, char **argv)
 {
-	check_args(argc);
+	check_args(argc, argv);
 	check_map(game, argv);
 	init_win(game);
 	init_imgs(game);
@@ -30,11 +30,22 @@ void	game_start(t_game *game, int argc, char **argv)
 	mlx_loop(game->mlx);
 }
 
-static void	check_args(int argc)
+static void	check_args(int argc, char **argv)
 {
+	unsigned int i;
+	
+	i = 0;
 	if (argc != 2)
 	{
 		printf("Wrong number of arguments. You must input a map.ber file.\n");
+		exit(0);
+	}
+	while (argv[1][i])
+		i++;
+	i -= 4; 
+	if (ft_strncmp(ft_substr(argv[1], i, 4),".ber", 4) != 0)
+	{
+		printf("You must enter a .ber file to be read\n");
 		exit(0);
 	}
 }
@@ -74,7 +85,7 @@ static void	init_game_opt(t_game *game)
 	}
 }
 
-static int	exit_game(t_game *game)
+static int	exit_game()
 {
 	exit(0);
 }
