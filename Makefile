@@ -18,7 +18,8 @@ SRC = $(SRC_DIR)/main.c\
 		$(SRC_DIR)/game_display.c\
 		$(SRC_DIR)/game_init_imgs.c\
 		$(SRC_DIR)/game_movement.c\
-		$(SRC_DIR)/game_utils.c
+		$(SRC_DIR)/game_utils.c\
+		$(SRC_DIR)/game_map_utils.c
 
 INCLUDE_DIR = includes
 INCLUDE = includes/so_long.h

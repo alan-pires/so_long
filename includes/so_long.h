@@ -74,5 +74,6 @@ int		game_display(t_game *game);
 void	init_imgs(t_game *game);
 int		ft_move(int key, void *param);
 void	check_exit(t_game *game);
+void	check_map_errors(t_game *game);
 
 # endif
