@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 12:06:30 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/05 22:18:24 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/05 22:26:48 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	check_map(t_game *game, char **argv)
 		exit (0);
 	}
 	check_map_errors(game);
-	// check if all the lines are the same size...
+
 	// free all the necessary stuff.
 	// i = 0;
 	// while (i < mapsize)
