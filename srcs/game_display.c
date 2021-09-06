@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 17:51:17 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/05 20:47:43 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/05 21:09:21 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void	check_sprite(t_game *game, char sprite, t_pos pos)
 	else if (sprite == 'C')
 		display_sprite(game, &game->collect, pos);
 	else if (sprite == 'P')
-		display_sprite(game, &game->player, pos);
+		display_sprite(game, &game->ply, pos);
 	else if (sprite == 'E')
 		display_sprite(game, &game->exit, pos);
 }

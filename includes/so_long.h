@@ -57,7 +57,7 @@ typedef struct	s_game
 {
 	void		*mlx;
 	t_window	window;
-	t_sprite	player;
+	t_sprite	ply;
 	t_sprite	collect;
 	t_sprite	wall;
 	t_sprite	empty;

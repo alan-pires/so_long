@@ -6,11 +6,49 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 12:06:30 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/05 20:48:31 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/05 21:19:39 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+
+static void	alloc_array(t_game *game);
+static int	hastype(t_game *game, char type);
+static int	check_imgtypes(t_game *game);
+static int	init_array_lc(t_game *game, char **argv);
+
+int	check_map(t_game *game, char **argv)
+{
+	int	i;
+	int	fd;
+	
+	i = 0;
+	init_array_lc(game, argv);
+	alloc_array(game);
+	fd = open(argv[1], O_RDONLY);
+	while (i < game->map.lines)
+	{
+		get_next_line(fd, &game->map.arr[i]);
+		// printf("%s\n", game->map.arr[i]);
+		i++;
+	}
+	if (check_imgtypes(game) == 0)
+	{
+		printf("Invalid Map... It needs to contain all necessary type of sprites\n");
+		exit (0);
+	}
+	
+	// check if all the lines are the same size...
+	// free all the necessary stuff.
+	// i = 0;
+	// while (i < mapsize)
+	// {
+	// free(&array[i]);
+	// i++;
+	// }
+	close(fd);
+	return (0);
+}
 
 static void	alloc_array(t_game *game)
 {
@@ -78,39 +116,5 @@ static int	init_array_lc(t_game *game, char **argv)
 	game->map.cols = ft_strlen(line);
 	close(fd);
 	//free(line);
-	return (0);
-}
-
-
-int	check_map(t_game *game, char **argv)
-{
-	int	i;
-	int	fd;
-	
-	i = 0;
-	init_array_lc(game, argv);
-	alloc_array(game);
-	fd = open(argv[1], O_RDONLY);
-	while (i < game->map.lines)
-	{
-		get_next_line(fd, &game->map.arr[i]);
-		// printf("%s\n", game->map.arr[i]);
-		i++;
-	}
-	if (check_imgtypes(game) == 0)
-	{
-		printf("Invalid Map... It needs to contain all necessary type of sprites\n");
-		exit (0);
-	}
-	
-	// check if all the lines are the same size...
-	// free all the necessary stuff.
-	// i = 0;
-	// while (i < mapsize)
-	// {
-	// free(&array[i]);
-	// i++;
-	// }
-	close(fd);
 	return (0);
 }

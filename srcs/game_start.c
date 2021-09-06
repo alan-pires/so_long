@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 11:46:26 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/05 20:47:11 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/05 21:12:04 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ static void	init_game_opt(t_game *game)
 		{
 			if (game->map.arr[i][j] == 'P')
 			{
-				game->player.pos.x = i;
-				game->player.pos.y = j;
+				game->ply.pos.x = i;
+				game->ply.pos.y = j;
 			}
 			if (game->map.arr[i][j] == 'C')
 				game->to_collect++;

@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 08:45:11 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/05 19:48:44 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/05 21:09:56 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	init_imgs(t_game *game)
 {
-	game->player.ref = mlx_xpm_file_to_image(game->mlx, PLAYER, &game->player.width, &game->player.height);
-	game->player.pixels = (int *)mlx_get_data_addr(game->player.ref, &game->player.bpp, &game->player.line_size, &game->player.endian);
+	game->ply.ref = mlx_xpm_file_to_image(game->mlx, PLAYER, &game->ply.width, &game->ply.height);
+	game->ply.pixels = (int *)mlx_get_data_addr(game->ply.ref, &game->ply.bpp, &game->ply.line_size, &game->ply.endian);
 	game->empty.ref = mlx_xpm_file_to_image(game->mlx, EMPTY, &game->empty.width, &game->empty.height);
 	game->empty.pixels = (int *)mlx_get_data_addr(game->empty.ref, &game->empty.bpp, &game->empty.line_size, &game->empty.endian);
 	game->wall.ref = mlx_xpm_file_to_image(game->mlx, WALL, &game->wall.width, &game->wall.height);
