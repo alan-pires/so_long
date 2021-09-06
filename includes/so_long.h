@@ -16,6 +16,7 @@
 # define LEFT 0x61
 # define UP 0x77
 # define DOWN 0x73
+# define EXIT_GAME 17
 
 typedef struct s_pos
 {

@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 14:26:08 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/06 12:45:24 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/06 14:25:18 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,10 @@ static void	move_up(t_game *g)
 		g->steps++;
 		printf("%d\n", g->steps);
 		if (g->map.arr[(g->ply.pos.y / BLOCK) - 1][g->ply.pos.x / BLOCK] == 'C')
+		{
+			g->map.arr[(g->ply.pos.y / BLOCK) - 1][g->ply.pos.x / BLOCK] = '0';
 			g->to_collect--;
+		}
 		if (g->map.arr[(g->ply.pos.y / BLOCK) - 1][g->ply.pos.x / BLOCK] == 'E')
 			check_exit(g);
 		if (g->map.arr[(g->ply.pos.y / BLOCK) - 1][g->ply.pos.x / BLOCK] != 'E')
@@ -61,7 +64,10 @@ static void	move_down(t_game *g)
 		g->steps++;
 		printf("%d\n", g->steps);
 		if (g->map.arr[(g->ply.pos.y / BLOCK) + 1][g->ply.pos.x / BLOCK] == 'C')
-			g->to_collect--;
+		{
+			g->map.arr[(g->ply.pos.y / BLOCK) + 1][g->ply.pos.x / BLOCK] = '0';
+			g->to_collect--;			
+		}
 		if (g->map.arr[(g->ply.pos.y / BLOCK) + 1][g->ply.pos.x / BLOCK] == 'E')
 			check_exit(g);
 		if (g->map.arr[(g->ply.pos.y / BLOCK) + 1][g->ply.pos.x / BLOCK] != 'E')
@@ -81,7 +87,10 @@ static void	move_right(t_game *g)
 		g->steps++;
 		printf("%d\n", g->steps);
 		if (g->map.arr[g->ply.pos.y / BLOCK][(g->ply.pos.x / BLOCK) + 1] == 'C')
+		{
+			g->map.arr[g->ply.pos.y / BLOCK][(g->ply.pos.x / BLOCK) + 1] = '0';
 			g->to_collect--;
+		}
 		if (g->map.arr[g->ply.pos.y / BLOCK][(g->ply.pos.x / BLOCK) + 1] == 'E')
 			check_exit(g);
 		if (g->map.arr[g->ply.pos.y / BLOCK][(g->ply.pos.x / BLOCK) + 1] != 'E')
@@ -101,7 +110,10 @@ static void	move_left(t_game *g)
 		g->steps++;
 		printf("%d\n", g->steps);
 		if (g->map.arr[g->ply.pos.y / BLOCK][(g->ply.pos.x / BLOCK) - 1] == 'C')
+		{
+			g->map.arr[g->ply.pos.y / BLOCK][(g->ply.pos.x / BLOCK) - 1] = '0';
 			g->to_collect--;
+		}
 		if (g->map.arr[g->ply.pos.y / BLOCK][(g->ply.pos.x / BLOCK) - 1] == 'E')
 			check_exit(g);
 		if (g->map.arr[g->ply.pos.y / BLOCK][(g->ply.pos.x / BLOCK) - 1] != 'E')

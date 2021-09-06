@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 11:46:26 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/06 12:12:24 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/06 13:19:58 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static void	check_args(int argc);
 static void	init_win(t_game *game);
 static void	init_game_opt(t_game *game);
+static int	exit_game(t_game *game);
 
 void	game_start(t_game *game, int argc, char **argv)
 {
@@ -25,6 +26,7 @@ void	game_start(t_game *game, int argc, char **argv)
 	init_game_opt(game);
 	game_display(game);
 	mlx_key_hook(game->window.ref, ft_move, game);
+	mlx_hook(game->window.ref, EXIT_GAME, 0, exit_game, game);
 	mlx_loop(game->mlx);
 }
 
@@ -70,4 +72,9 @@ static void	init_game_opt(t_game *game)
 		}
 		i++;
 	}
+}
+
+static int	exit_game(t_game *game)
+{
+	exit(0);
 }
