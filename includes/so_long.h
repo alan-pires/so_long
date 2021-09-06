@@ -27,7 +27,7 @@ typedef struct s_map
 {
 	int		cols;
 	int		lines;
-	char	**array;
+	char	**arr;
 	char	*ref;
 
 }	t_map;
@@ -63,9 +63,9 @@ typedef struct	s_game
 	t_sprite	empty;
 	t_sprite	exit;
 	t_map		map;
-	int			collected;
+	int			to_collect;
 	int			steps;
-	
+
 }	t_game;
 
 void	game_start(t_game *game, int argc, char **argv);
@@ -73,5 +73,6 @@ int		check_map(t_game *game, char **argv);
 int		game_display(t_game *game);
 void	init_imgs(t_game *game);
 int		ft_move(int key, void *param);
+void	check_exit(t_game *game);
 
 # endif

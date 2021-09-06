@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 17:51:17 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/05 17:17:54 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/05 20:47:43 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	game_display(t_game *game)
 		{
 			pos.y = i;
 			pos.x = j;
-			check_sprite(game, game->map.array[i][j], pos);
+			check_sprite(game, game->map.arr[i][j], pos);
 			j++;
 		}
 		i++;

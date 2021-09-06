@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 11:46:26 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/05 19:52:20 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/05 20:47:11 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,20 +51,22 @@ static void	init_game_opt(t_game *game)
 	
 	i = 0;
 	j = 0;
+	game->steps = 0;
+	game->to_collect = 0;
 	while (i < game->map.lines)
 	{
 		j = 0;
 		while (j < game->map.cols)
 		{
-			if (game->map.array[i][j] == 'P')
+			if (game->map.arr[i][j] == 'P')
 			{
 				game->player.pos.x = i;
 				game->player.pos.y = j;
 			}
+			if (game->map.arr[i][j] == 'C')
+				game->to_collect++;
 			j++;
 		}
 		i++;
 	}
-	game->collected = 0;
-	game->steps = 0;
 }

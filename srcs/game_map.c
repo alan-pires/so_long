@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 12:06:30 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/05 14:08:43 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/05 20:48:31 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ static void	alloc_array(t_game *game)
 	int	i;
 
 	i = 0;
-	game->map.array = malloc(sizeof(char *) * game->map.lines);
-	if (game->map.array)
+	game->map.arr = malloc(sizeof(char *) * game->map.lines);
+	if (game->map.arr)
 	{
 		while (i < game->map.lines)
 		{
-			game->map.array[i] = malloc(sizeof(char *) * game->map.cols);
-			if (game->map.array[i])
+			game->map.arr[i] = malloc(sizeof(char *) * game->map.cols);
+			if (game->map.arr[i])
 				i++;
 		}
 	}
@@ -48,7 +48,7 @@ static int	hastype(t_game *game, char type) // dar os frees necessários
 	}
 	i = -1;
 	while (++i < game->map.lines)
-		aux[i] = ft_strchr(game->map.array[i], type);
+		aux[i] = ft_strchr(game->map.arr[i], type);
 	while (--i >= 0)
 		if (aux[i])
 			return (1);
@@ -93,8 +93,8 @@ int	check_map(t_game *game, char **argv)
 	fd = open(argv[1], O_RDONLY);
 	while (i < game->map.lines)
 	{
-		get_next_line(fd, &game->map.array[i]);
-		// printf("%s\n", game->map.array[i]);
+		get_next_line(fd, &game->map.arr[i]);
+		// printf("%s\n", game->map.arr[i]);
 		i++;
 	}
 	if (check_imgtypes(game) == 0)
