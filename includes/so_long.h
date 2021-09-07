@@ -78,5 +78,6 @@ int		ft_move(int key, void *param);
 void	check_exit(t_game *game);
 void	check_map_errors(t_game *game);
 void	walk_animat(t_game *g, char *img1, char *img2);
+void	free_map(t_map *map, char **str);
 
 # endif
