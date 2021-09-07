@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 14:26:08 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/06 14:25:18 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/06 22:46:07 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ int	ft_move(int key, void *param)
 	t_game *game = (t_game*)param;
 
 	if (key == ESC)
+	{
+		free_map(&game->map, game->map.arr);
 		exit(0);
+	}
 	if (key == UP)
 		move_up(game);
 	else if (key == DOWN)

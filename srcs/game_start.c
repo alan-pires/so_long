@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 11:46:26 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/06 22:26:54 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/06 22:52:00 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	init_opt(t_game *game);
 static void	check_args(int argc, char **argv);
 static void	init_win(t_game *game);
 static void	init_position(t_game *game);
-static int	exit_game();
+static int	exit_game(t_game *game);
 
 void	game_start(t_game *game, int argc, char **argv)
 {
@@ -94,7 +94,8 @@ static	void	init_win(t_game *game)
 		BLOCK * game->map.lines, "so_long");
 }
 
-static int	exit_game()
+static int	exit_game(t_game *game)
 {
+	free_map(&game->map, game->map.arr);
 	exit(0);
 }

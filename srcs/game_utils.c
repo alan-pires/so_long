@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 16:20:37 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/06 22:17:46 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/06 22:48:54 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ void	free_map(t_map *game_map, char **map)
 	int	i;
 
 	i = 0;
-	if (map)
+	if (map != NULL)
 	{
-		while (i <= game_map->lines)
+		while (i < game_map->lines)
 			free(map[i++]);
 		free(map);
 		map = NULL;
