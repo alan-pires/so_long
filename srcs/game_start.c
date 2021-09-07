@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 11:46:26 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/06 22:52:00 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/06 23:19:54 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static void	init_position(t_game *game)
 {
 	int i;
 	int j;
-	
+
 	i = 0;
 	while (i < game->map.lines)
 	{

@@ -4,7 +4,7 @@ CC = clang
 FLAGS = -g -Wall -Wextra -Werror
 FLAGS_TESTE = -g -Wall -Wextra
 MLX_FLAGS = -lmlx -lXext -lX11
-SANITIZE = -fsanitize=address
+SANITIZE = -fsanitize=leak
 
 LIBFT_DIR = ./libft
 LIBFT = libft/libft.a
@@ -46,6 +46,9 @@ $(MLX):
 
 run: all
 	./$(NAME)
+
+# test: all
+# 	valgrind --leak-check=full ./$(NAME) maps/map.ber
 
 clean:
 	make clean -C $(MLX_DIR)

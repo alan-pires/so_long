@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 12:06:30 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/06 22:32:45 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/07 01:11:51 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,8 @@ int	check_map(t_game *game, char **argv)
 		free_map(&game->map, game->map.arr);
 		exit (0);
 	}
+	//free(game->map.arr);
 	check_map_errors(game);
-
-	// free all the necessary stuff.
-	// i = 0;
-	// while (i < mapsize)
-	// {
-	// free(&array[i]);
-	// i++;
-	// }
 	close(fd);
 	return (0);
 }
@@ -82,15 +75,27 @@ static void	alloc_array(t_game *game)
 				i++;
 		}
 	}
+	free_map(&game->map, game->map.arr);
+}
+
+static int	check_imgtypes(t_game *game)
+{
+	if (hastype(game, '1') == 0 || hastype(game, '0') == 0
+		|| hastype(game, 'C') == 0 || hastype(game, 'E') == 0
+		|| hastype(game, 'P') == 0)
+		return (0);
+	return (1);
 }
 
 static int	hastype(t_game *game, char type) // dar os frees necessários
 {
 	int		i;
 	char	**aux;
+	int		res;
 
 	aux = NULL;
 	i = 0;
+	res = 0;
 	aux = malloc(sizeof(char *) * game->map.lines);
 	if (aux)
 	{
@@ -106,16 +111,9 @@ static int	hastype(t_game *game, char type) // dar os frees necessários
 		aux[i] = ft_strchr(game->map.arr[i], type);
 	while (--i >= 0)
 		if (aux[i])
-			return (1);
-	return (0);
+			res++;
+	// while (aux[i++])
+	// 	free(aux[i]);
+	free(aux);
+	return (res);
 }
-
-static int	check_imgtypes(t_game *game)
-{
-	if (hastype(game, '1') == 0 || hastype(game, '0') == 0
-		|| hastype(game, 'C') == 0 || hastype(game, 'E') == 0
-		|| hastype(game, 'P') == 0)
-		return (0);
-	return (1);
-}
-

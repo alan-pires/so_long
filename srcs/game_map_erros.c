@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 21:55:43 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/06 22:44:30 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/07 00:01:00 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,8 @@ void	check_map_errors(t_game *game)
 static void	check_wall_erros(t_game *game)
 {
 	int	i;
-	int	j;
 	
 	i = 1;
-	j = 0;
 	check_updown(game, game->map.arr[0]);
 	while (i < game->map.lines - 1)
 	{
