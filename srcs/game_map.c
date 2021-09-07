@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 12:06:30 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/05 22:26:48 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/06 22:32:45 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int	check_map(t_game *game, char **argv)
 	if (check_imgtypes(game) == 0)
 	{
 		printf("The Map needs to contain all necessary sprites\n");
+		free_map(&game->map, game->map.arr);
 		exit (0);
 	}
 	check_map_errors(game);
@@ -62,7 +63,7 @@ static int	init_array_lc(t_game *game, char **argv)
 	game->map.lines = i + 1;
 	game->map.cols = ft_strlen(line);
 	close(fd);
-	//free(line);
+	free(line);
 	return (0);
 }
 
