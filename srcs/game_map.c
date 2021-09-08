@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 12:06:30 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/08 11:39:59 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/08 12:48:04 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,6 @@ int	check_map(t_game *game, char **argv)
 }
 
 //========================================================================================
-// static int	ft_read(int fd, int *len)
-// {
-// 	int		size;
-// 	char	buff;
-
-// 	size = read(fd, &buff, 1);
-	
-// 	while ()
-// }
 
 static int	init_array_lc(t_game *game, char **argv) // funçao que estava funcionando
 {
@@ -81,33 +72,7 @@ static int	init_array_lc(t_game *game, char **argv) // funçao que estava funcio
 }
 //=========================================================================
 
-// static int	init_array_lc(t_game *game, char **argv)
-// {
-// 	int		fd;
-// 	int		size;
-// 	char	buff;
 
-// 	fd = open(argv[1], O_RDONLY);
-// 	size = read(fd, &buff, 1);
-// 	if (size < 0)
-// 	{
-// 		printf("File is empty.\n");
-// 		exit(0);
-// 	}
-// 	while (size > 0)
-// 	{
-// 		if (buff == '\n')
-// 			game->map.lines++;
-// 		else
-// 			game->map.cols++;
-// 		size = read(fd, &buff, 1);
-// 	}
-// 	game->map.cols /= game->map.lines;	
-// 	close(fd);
-// 	printf("lines: %d\n", game->map.lines);
-// 	printf("cols: %d\n", game->map.cols);
-// 	return (0);
-// }
 
 static void	alloc_array(t_game *game)
 {

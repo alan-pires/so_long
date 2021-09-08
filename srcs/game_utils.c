@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 16:20:37 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/08 11:45:13 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/08 12:04:58 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,14 @@ void	check_exit(t_game *game)
 		exit(0);
 	}
 }
+
+// void	free_map(t_game *game)
+// {
+// 	int	i;
+
+// 	i = 0;
+// 	i++;
+// }
 
 void	free_map(t_game *game)
 {
@@ -37,6 +45,8 @@ void	free_map(t_game *game)
 		free(game->map.arr);
 	}
 }
+
+
 
 
 

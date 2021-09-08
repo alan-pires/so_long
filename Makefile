@@ -22,7 +22,7 @@ SRC = $(SRC_DIR)/main.c\
 		$(SRC_DIR)/game_utils.c\
 		$(SRC_DIR)/game_map_erros.c\
 		$(SRC_DIR)/game_animation.c
-
+		
 INCLUDE_DIR = includes
 INCLUDE = includes/so_long.h
 
