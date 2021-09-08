@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 16:20:37 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/08 00:34:06 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/08 11:45:13 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,29 @@ void	check_exit(t_game *game)
 {
 	if (game->to_collect == 0)
 	{
-		free_map(&game->map, game->map.arr);
+		free_map(game);
 		printf("ganhou!\n");
 		exit(0);
 	}
 }
 
-void	free_map(t_map *game_map, char **map)
+void	free_map(t_game *game)
 {
 	int	i;
 
 	i = 0;
-	if (map != NULL)
+	if (game->map.arr)
 	{
-		while (i < game_map->lines)
-			free(map[i++]);
-		free(map);
-		map = NULL;
+		while (i < game->map.lines)
+		{
+			free(game->map.arr[i]);
+			i++;
+		}
+		free(game->map.arr);
 	}
 }
+
+
 
 // ver depois
 // static void	print_error(char *message)

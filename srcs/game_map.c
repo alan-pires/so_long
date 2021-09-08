@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 12:06:30 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/08 00:33:09 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/08 11:39:59 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	check_map(t_game *game, char **argv)
 	if (fd < 0)
 	{
 		printf("A valid file was not found.\n");
-		free_map(&game->map, game->map.arr);
+		free_map(game);
 		exit (0);
 	}
 	while (i < game->map.lines)
@@ -40,7 +40,7 @@ int	check_map(t_game *game, char **argv)
 	if (check_imgtypes(game) == 0)
 	{
 		printf("The Map needs to contain all necessary sprites\n");
-		free_map(&game->map, game->map.arr);
+		free_map(game);
 		exit (0);
 	}
 	check_map_errors(game);
@@ -127,7 +127,7 @@ static void	alloc_array(t_game *game)
 			game->map.arr[i] = malloc(sizeof(char *) * game->map.cols);
 			if (game->map.arr[i])
 			{
-				game->map.arr[i] = NULL;
+				// game->map.arr[i] = NULL;
 				i++;
 			}
 		}

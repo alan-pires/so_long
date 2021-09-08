@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 11:46:26 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/07 23:05:21 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/08 11:39:31 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,6 @@ static	void	init_win(t_game *game)
 
 static int	exit_game(t_game *game)
 {
-	free_map(&game->map, game->map.arr);
+	free_map(game);
 	exit(0);
 }

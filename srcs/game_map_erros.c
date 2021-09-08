@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 21:55:43 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/07 01:21:25 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/08 11:44:48 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	check_map_errors(t_game *game)
 	if (!aux)
 	{
 		printf("Map is empty...\n");
-		free_map(&game->map, game->map.arr);
+		free_map(game);
 		exit(0);
 	}
 	while (i < game->map.lines)
@@ -34,7 +34,7 @@ void	check_map_errors(t_game *game)
 		if (aux != ft_strlen(game->map.arr[i]))
 		{
 			printf("The Map must be a rectangle\n");
-			free_map(&game->map, game->map.arr);
+			free_map(game);
 			exit(0);
 		}
 		i++;
@@ -72,7 +72,7 @@ static void	check_wall(t_game *game, char *line)
 	if (err > 0)
 	{
 		printf("Map must be surronded by walls.\n");
-		free_map(&game->map, game->map.arr);
+		free_map(game);
 		exit(0);
 	}
 }
@@ -87,7 +87,7 @@ static void	check_updown(t_game *game, char *line)
 		if (line[i] != '1')
 		{
 			printf("Map must be surronded by walls.\n");
-			free_map(&game->map, game->map.arr);
+			free_map(game);
 			exit(0);
 		}
 		i++;

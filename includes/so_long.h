@@ -29,7 +29,6 @@ typedef struct s_map
 	int		cols;
 	int		lines;
 	char	**arr;
-	char	*ref;
 
 }	t_map;
 
@@ -78,6 +77,6 @@ int		ft_move(int key, void *param);
 void	check_exit(t_game *game);
 void	check_map_errors(t_game *game);
 void	walk_animat(t_game *g, char *img1, char *img2);
-void	free_map(t_map *game_map, char **map);
+void	free_map(t_game *game);
 
 # endif
