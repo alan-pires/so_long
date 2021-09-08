@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 21:55:43 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/08 11:44:48 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/08 16:19:09 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,11 @@ void	check_map_errors(t_game *game)
 	i = 0;
 	aux = ft_strlen(game->map.arr[0]);
 	if (!aux)
-	{
-		printf("Map is empty...\n");
-		free_map(game);
-		exit(0);
-	}
+		exit_err(game, "Map is empty.");
 	while (i < game->map.lines)
 	{
 		if (aux != ft_strlen(game->map.arr[i]))
-		{
-			printf("The Map must be a rectangle\n");
-			free_map(game);
-			exit(0);
-		}
+			exit_err(game, "The Map must be a rectangle");
 		i++;
 	}
 	check_wall_erros(game);
@@ -70,11 +62,7 @@ static void	check_wall(t_game *game, char *line)
 	if (line[i - 1] != '1')
 		err++;
 	if (err > 0)
-	{
-		printf("Map must be surronded by walls.\n");
-		free_map(game);
-		exit(0);
-	}
+		exit_err(game, "Map must be surronded by walls.");
 }
 
 static void	check_updown(t_game *game, char *line)
@@ -85,11 +73,7 @@ static void	check_updown(t_game *game, char *line)
 	while (line[i])
 	{
 		if (line[i] != '1')
-		{
-			printf("Map must be surronded by walls.\n");
-			free_map(game);
-			exit(0);
-		}
+			exit_err(game, "Map must be surronded by walls.");
 		i++;
 	}
 }

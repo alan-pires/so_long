@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 12:06:30 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/08 15:38:47 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/08 16:16:14 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,7 @@ int	check_map(t_game *game, char **argv)
 	alloc_array(game);
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
-	{
-		printf("A valid file was not found.\n");
-		free_map(game);
-		exit (0);
-	}
+		exit_err(game, "A valid file was not found");
 	while (i < game->map.lines)
 	{
 		get_next_line(fd, &game->map.arr[i]);
@@ -39,16 +35,10 @@ int	check_map(t_game *game, char **argv)
 	}
 	close(fd);
 	if (check_imgtypes(game) == 0)
-	{
-		printf("The Map needs to contain all necessary sprites\n");
-		free_map(game);
-		exit (0);
-	}
+		exit_err(game, "Map needs to contain all necessary sprites");
 	check_map_errors(game);
 	return (0);
 }
-
-//========================================================================================
 
 static int	init_lc(t_game *game, char **argv) // funçao que estava funcionando
 {
@@ -71,8 +61,6 @@ static int	init_lc(t_game *game, char **argv) // funçao que estava funcionando
 	close(fd);
 	return (0);
 }
-//=========================================================================
-
 
 static void	alloc_array(t_game *game)
 {
