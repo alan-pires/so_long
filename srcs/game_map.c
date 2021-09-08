@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 12:06:30 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/08 13:56:04 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/08 15:38:47 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,8 @@ static int	init_lc(t_game *game, char **argv) // funçao que estava funcionando
 		len = ft_strlen(line);
 		free(line);
 		i++;
-	}	
+	}
+	free(line);
 	game->map.lines = i + 1;
 	game->map.cols = len;
 	close(fd);
