@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 12:06:30 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/07 22:50:44 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/08 00:33:09 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,12 @@ int	check_map(t_game *game, char **argv)
 	init_array_lc(game, argv);
 	alloc_array(game);
 	fd = open(argv[1], O_RDONLY);
+	if (fd < 0)
+	{
+		printf("A valid file was not found.\n");
+		free_map(&game->map, game->map.arr);
+		exit (0);
+	}
 	while (i < game->map.lines)
 	{
 		get_next_line(fd, &game->map.arr[i]);
@@ -42,22 +48,66 @@ int	check_map(t_game *game, char **argv)
 	return (0);
 }
 
-static int	init_array_lc(t_game *game, char **argv)
+//========================================================================================
+// static int	ft_read(int fd, int *len)
+// {
+// 	int		size;
+// 	char	buff;
+
+// 	size = read(fd, &buff, 1);
+	
+// 	while ()
+// }
+
+static int	init_array_lc(t_game *game, char **argv) // funçao que estava funcionando
 {
 	char	*line;
 	int		i;
 	int		fd;
+	int		len;
 
 	fd = open(argv[1], O_RDONLY);
 	i = 0;
 	while (get_next_line(fd, &line))
+	{
+		len = ft_strlen(line);
+		free(line);
 		i++;
+	}	
 	game->map.lines = i + 1;
-	game->map.cols = ft_strlen(line);
+	game->map.cols = len;
 	close(fd);
-	free(line);
 	return (0);
 }
+//=========================================================================
+
+// static int	init_array_lc(t_game *game, char **argv)
+// {
+// 	int		fd;
+// 	int		size;
+// 	char	buff;
+
+// 	fd = open(argv[1], O_RDONLY);
+// 	size = read(fd, &buff, 1);
+// 	if (size < 0)
+// 	{
+// 		printf("File is empty.\n");
+// 		exit(0);
+// 	}
+// 	while (size > 0)
+// 	{
+// 		if (buff == '\n')
+// 			game->map.lines++;
+// 		else
+// 			game->map.cols++;
+// 		size = read(fd, &buff, 1);
+// 	}
+// 	game->map.cols /= game->map.lines;	
+// 	close(fd);
+// 	printf("lines: %d\n", game->map.lines);
+// 	printf("cols: %d\n", game->map.cols);
+// 	return (0);
+// }
 
 static void	alloc_array(t_game *game)
 {
@@ -65,13 +115,21 @@ static void	alloc_array(t_game *game)
 
 	i = 0;
 	game->map.arr = malloc(sizeof(char *) * game->map.lines);
-	if (game->map.arr)
+	if (!game->map.arr)
+	{
+		printf("Failed to allocate memory.\n");
+		exit(0);
+	}
+	else
 	{
 		while (i < game->map.lines)
 		{
 			game->map.arr[i] = malloc(sizeof(char *) * game->map.cols);
 			if (game->map.arr[i])
+			{
+				game->map.arr[i] = NULL;
 				i++;
+			}
 		}
 	}
 }
