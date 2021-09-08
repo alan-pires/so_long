@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 12:06:30 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/08 12:48:04 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/08 13:56:04 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	alloc_array(t_game *game);
 static int	hastype(t_game *game, char type);
 static int	check_imgtypes(t_game *game);
-static int	init_array_lc(t_game *game, char **argv);
+static int	init_lc(t_game *game, char **argv);
 
 int	check_map(t_game *game, char **argv)
 {
@@ -23,7 +23,7 @@ int	check_map(t_game *game, char **argv)
 	int	fd;
 
 	i = 0;
-	init_array_lc(game, argv);
+	init_lc(game, argv);
 	alloc_array(game);
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
@@ -37,6 +37,7 @@ int	check_map(t_game *game, char **argv)
 		get_next_line(fd, &game->map.arr[i]);
 		i++;
 	}
+	close(fd);
 	if (check_imgtypes(game) == 0)
 	{
 		printf("The Map needs to contain all necessary sprites\n");
@@ -44,13 +45,12 @@ int	check_map(t_game *game, char **argv)
 		exit (0);
 	}
 	check_map_errors(game);
-	close(fd);
 	return (0);
 }
 
 //========================================================================================
 
-static int	init_array_lc(t_game *game, char **argv) // funçao que estava funcionando
+static int	init_lc(t_game *game, char **argv) // funçao que estava funcionando
 {
 	char	*line;
 	int		i;
@@ -73,7 +73,6 @@ static int	init_array_lc(t_game *game, char **argv) // funçao que estava funcio
 //=========================================================================
 
 
-
 static void	alloc_array(t_game *game)
 {
 	int	i;
@@ -84,18 +83,6 @@ static void	alloc_array(t_game *game)
 	{
 		printf("Failed to allocate memory.\n");
 		exit(0);
-	}
-	else
-	{
-		while (i < game->map.lines)
-		{
-			game->map.arr[i] = malloc(sizeof(char *) * game->map.cols);
-			if (game->map.arr[i])
-			{
-				// game->map.arr[i] = NULL;
-				i++;
-			}
-		}
 	}
 }
 
