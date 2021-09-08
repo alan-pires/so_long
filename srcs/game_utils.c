@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 16:20:37 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/06 23:51:48 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/07 01:29:27 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	check_exit(t_game *game)
 {
 	if (game->to_collect == 0)
 	{
+		free_map(&game->map, game->map.arr);
 		printf("ganhou!\n");
 		exit(0);
 	}

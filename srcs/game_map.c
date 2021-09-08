@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 12:06:30 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/07 01:11:51 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/07 22:50:44 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int	check_map(t_game *game, char **argv)
 		free_map(&game->map, game->map.arr);
 		exit (0);
 	}
-	//free(game->map.arr);
 	check_map_errors(game);
 	close(fd);
 	return (0);
@@ -75,7 +74,6 @@ static void	alloc_array(t_game *game)
 				i++;
 		}
 	}
-	free_map(&game->map, game->map.arr);
 }
 
 static int	check_imgtypes(t_game *game)
@@ -90,30 +88,15 @@ static int	check_imgtypes(t_game *game)
 static int	hastype(t_game *game, char type) // dar os frees necessários
 {
 	int		i;
-	char	**aux;
 	int		res;
 
-	aux = NULL;
 	i = 0;
 	res = 0;
-	aux = malloc(sizeof(char *) * game->map.lines);
-	if (aux)
+	while (i < game->map.lines)
 	{
-		while (i < game->map.lines)
-		{
-			aux[i] = malloc(sizeof(char *) * game->map.cols);
-			if (aux[i])
-				i++;
-		}
-	}
-	i = -1;
-	while (++i < game->map.lines)
-		aux[i] = ft_strchr(game->map.arr[i], type);
-	while (--i >= 0)
-		if (aux[i])
+		if(ft_strchr(game->map.arr[i], type) != NULL)
 			res++;
-	// while (aux[i++])
-	// 	free(aux[i]);
-	free(aux);
+		i++;
+	}
 	return (res);
 }
