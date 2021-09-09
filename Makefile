@@ -1,8 +1,7 @@
 NAME = so_long
 
 CC = clang
-FLAGS = -g -Wall -Wextra -Werror
-FLAGS_TESTE = -g -Wall -Wextra
+CFLAGS = -g -Wall -Wextra -Werror
 MLX_FLAGS = -lmlx -lXext -lX11
 SANITIZE = -fsanitize=leak
 
@@ -54,11 +53,11 @@ $(NAME): $(LIBFT) $(MLX) $(OBJ)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INCLUDE)
 	mkdir -p $(OBJ_DIR)
-	$(CC) -c $(FLAGS_TESTE) -I$(INCLUDE_DIR) -o $@ $<
+	$(CC) -c $(CFLAGS) -I$(INCLUDE_DIR) -o $@ $<
 
 $(BONUS_OBJ_DIR)/%.o: $(BONUS_SRC_DIR)/%.c $(BONUS_INCLUDE)
 	mkdir -p $(BONUS_OBJ_DIR)
-	$(CC) -c $(FLAGS_TESTE) -I$(INCLUDE_DIR) -o $@ $<
+	$(CC) -c $(CFLAGS) -I$(INCLUDE_DIR) -o $@ $<
 
 $(LIBFT):
 	make bonus -C $(LIBFT_DIR)
