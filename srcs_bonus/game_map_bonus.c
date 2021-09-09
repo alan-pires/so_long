@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 12:06:30 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/08 17:19:48 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/09 16:04:59 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ static int	check_imgtypes(t_game *game)
 {
 	if (hastype(game, '1') == 0 || hastype(game, '0') == 0
 		|| hastype(game, 'C') == 0 || hastype(game, 'E') == 0
-		|| hastype(game, 'P') == 0)
+		|| hastype(game, 'P') == 0 || hastype(game, 'G') == 0)
 		return (0);
 	return (1);
 }
