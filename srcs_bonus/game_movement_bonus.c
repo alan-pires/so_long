@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 14:26:08 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/09 15:31:12 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/09 15:59:47 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,13 @@ static void	move_up(t_game *g)
 {
 	if (g->map.arr[(g->ply.pos.y / BLOCK) - 1][g->ply.pos.x / BLOCK] != '1')
 	{
-		g->ply.steps++;
+		if (g->map.arr[(g->ply.pos.y / BLOCK) - 1][g->ply.pos.x / BLOCK] != 'E')
+		{
+			g->ply.steps++;
+			print_moves(g);
+		}
 		if (g->map.arr[(g->ply.pos.y / BLOCK) - 1][g->ply.pos.x / BLOCK] == 'G')
 			die(g);
-		print_moves(g);
 		if (g->map.arr[(g->ply.pos.y / BLOCK) - 1][g->ply.pos.x / BLOCK] == 'C')
 		{
 			g->map.arr[(g->ply.pos.y / BLOCK) - 1][g->ply.pos.x / BLOCK] = '0';
@@ -64,10 +67,13 @@ static void	move_down(t_game *g)
 {
 	if (g->map.arr[(g->ply.pos.y / BLOCK) + 1][g->ply.pos.x / BLOCK] != '1')
 	{
-		g->ply.steps++;
+		if (g->map.arr[(g->ply.pos.y / BLOCK) - 1][g->ply.pos.x / BLOCK] != 'E')
+		{
+			g->ply.steps++;
+			print_moves(g);
+		}
 		if (g->map.arr[(g->ply.pos.y / BLOCK) + 1][g->ply.pos.x / BLOCK] == 'G')
 			die(g);
-		print_moves(g);
 		if (g->map.arr[(g->ply.pos.y / BLOCK) + 1][g->ply.pos.x / BLOCK] == 'C')
 		{
 			g->map.arr[(g->ply.pos.y / BLOCK) + 1][g->ply.pos.x / BLOCK] = '0';
@@ -90,10 +96,13 @@ static void	move_right(t_game *g)
 {
 	if (g->map.arr[g->ply.pos.y / BLOCK][(g->ply.pos.x / BLOCK) + 1] != '1')
 	{
-		g->ply.steps++;
+		if (g->map.arr[(g->ply.pos.y / BLOCK) - 1][g->ply.pos.x / BLOCK] != 'E')
+		{
+			g->ply.steps++;
+			print_moves(g);
+		}
 		if (g->map.arr[g->ply.pos.y / BLOCK][(g->ply.pos.x / BLOCK) + 1] == 'G')
 			die(g);
-		print_moves(g);
 		if (g->map.arr[g->ply.pos.y / BLOCK][(g->ply.pos.x / BLOCK) + 1] == 'C')
 		{
 			g->map.arr[g->ply.pos.y / BLOCK][(g->ply.pos.x / BLOCK) + 1] = '0';
@@ -116,10 +125,13 @@ static void	move_left(t_game *g)
 {
 	if (g->map.arr[g->ply.pos.y / BLOCK][(g->ply.pos.x / BLOCK) - 1] != '1')
 	{
-		g->ply.steps++;
+		if (g->map.arr[(g->ply.pos.y / BLOCK) - 1][g->ply.pos.x / BLOCK] != 'E')
+		{
+			g->ply.steps++;
+			print_moves(g);
+		}
 		if (g->map.arr[g->ply.pos.y / BLOCK][(g->ply.pos.x / BLOCK) - 1] == 'G')
 			die(g);
-		print_moves(g);
 		if (g->map.arr[g->ply.pos.y / BLOCK][(g->ply.pos.x / BLOCK) - 1] == 'C')
 		{
 			g->map.arr[g->ply.pos.y / BLOCK][(g->ply.pos.x / BLOCK) - 1] = '0';

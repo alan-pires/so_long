@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 21:55:43 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/09 15:40:26 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/09 15:42:33 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ static void	check_wall_erros(t_game *game);
 static void	check_wall(t_game *game, char *line);
 static void	check_updown(t_game *game, char *line);
 static void	check_sprites(t_game *game);
-
 
 void	check_map_errors(t_game *game)
 {

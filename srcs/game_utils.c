@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 16:20:37 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/09 15:34:50 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/09 15:53:35 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	check_exit(t_game *game)
 {
 	if (game->to_collect == 0)
 	{
+		game->steps++;
+		printf("%d\n", game->steps);
 		free_map(game);
 		printf("\nYou won!\n\n");
 		exit(0);
