@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 16:20:37 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/08 17:20:04 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/09 07:59:13 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,6 @@ void	check_exit(t_game *game)
 		exit(0);
 	}
 }
-
-// void	free_map(t_game *game)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	i++;
-// }
 
 void	free_map(t_game *game)
 {
@@ -52,5 +44,11 @@ void	exit_err(t_game *game, char *msg)
 	ft_putstr_fd("Error\n", 2);
 	ft_putstr_fd(msg, 2);
 	ft_putchar_fd('\n', 2);
+	exit(0);
+}
+
+int	exit_game(t_game *game)
+{
+	free_map(game);
 	exit(0);
 }

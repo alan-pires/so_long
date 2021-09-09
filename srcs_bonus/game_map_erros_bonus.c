@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 21:55:43 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/08 17:19:53 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/09 07:57:53 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 static void	check_wall_erros(t_game *game);
 static void	check_wall(t_game *game, char *line);
 static void	check_updown(t_game *game, char *line);
+static void	check_sprites(t_game *game);
 
 void	check_map_errors(t_game *game)
 {
@@ -32,6 +33,7 @@ void	check_map_errors(t_game *game)
 			exit_err(game, "The Map must be a rectangle");
 		i++;
 	}
+	check_sprites(game);
 	check_wall_erros(game);
 }
 
@@ -75,6 +77,27 @@ static void	check_updown(t_game *game, char *line)
 	{
 		if (line[i] != '1')
 			exit_err(game, "Map must be surronded by walls.");
+		i++;
+	}
+}
+
+static void	check_sprites(t_game *game)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < game->map.lines)
+	{
+		j = 0;
+		while (j < game->map.cols)
+		{
+			if (game->map.arr[i][j] != '1' || game->map.arr[i][j] != '0'
+				|| game->map.arr[i][j] != 'P' || game->map.arr[i][j] != 'C'
+				|| game->map.arr[i][j] != 'E')
+					exit_err(game, "Invalid map.");
+			j++;
+		}
 		i++;
 	}
 }
