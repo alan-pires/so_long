@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 14:26:08 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/09 15:59:47 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/09 18:20:50 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@ static void	move_left(t_game *game);
 
 int	ft_move(int key, void *param)
 {
-	t_game *game = (t_game*)param;
+	t_game	*game;
 
+	game = (t_game *)param;
 	if (key == ESC)
 		exit_game(game);
 	if (key == UP)
@@ -36,27 +37,27 @@ int	ft_move(int key, void *param)
 
 static void	move_up(t_game *g)
 {
-	if (g->map.arr[(g->ply.pos.y / BLOCK) - 1][g->ply.pos.x / BLOCK] != '1')
+	if (g->map.arr[(g->ply.po.y / BLOCK) - 1][g->ply.po.x / BLOCK] != '1')
 	{
-		if (g->map.arr[(g->ply.pos.y / BLOCK) - 1][g->ply.pos.x / BLOCK] != 'E')
+		if (g->map.arr[(g->ply.po.y / BLOCK) - 1][g->ply.po.x / BLOCK] != 'E')
 		{
 			g->ply.steps++;
 			print_moves(g);
 		}
-		if (g->map.arr[(g->ply.pos.y / BLOCK) - 1][g->ply.pos.x / BLOCK] == 'G')
+		if (g->map.arr[(g->ply.po.y / BLOCK) - 1][g->ply.po.x / BLOCK] == 'G')
 			die(g);
-		if (g->map.arr[(g->ply.pos.y / BLOCK) - 1][g->ply.pos.x / BLOCK] == 'C')
+		if (g->map.arr[(g->ply.po.y / BLOCK) - 1][g->ply.po.x / BLOCK] == 'C')
 		{
-			g->map.arr[(g->ply.pos.y / BLOCK) - 1][g->ply.pos.x / BLOCK] = '0';
-			g->to_collect--;
+			g->map.arr[(g->ply.po.y / BLOCK) - 1][g->ply.po.x / BLOCK] = '0';
+			g->to_coll--;
 		}
-		if (g->map.arr[(g->ply.pos.y / BLOCK) - 1][g->ply.pos.x / BLOCK] == 'E')
+		if (g->map.arr[(g->ply.po.y / BLOCK) - 1][g->ply.po.x / BLOCK] == 'E')
 			check_exit(g);
-		if (g->map.arr[(g->ply.pos.y / BLOCK) - 1][g->ply.pos.x / BLOCK] != 'E')
+		if (g->map.arr[(g->ply.po.y / BLOCK) - 1][g->ply.po.x / BLOCK] != 'E')
 		{
-			g->empty.pos.x = g->ply.pos.x;
-			g->empty.pos.y = g->ply.pos.y;
-			g->ply.pos.y -= BLOCK;
+			g->empty.po.x = g->ply.po.x;
+			g->empty.po.y = g->ply.po.y;
+			g->ply.po.y -= BLOCK;
 			walk_animat(g, "sprites/pu1.xpm", "sprites/pu2.xpm");
 		}
 	}
@@ -65,27 +66,27 @@ static void	move_up(t_game *g)
 
 static void	move_down(t_game *g)
 {
-	if (g->map.arr[(g->ply.pos.y / BLOCK) + 1][g->ply.pos.x / BLOCK] != '1')
+	if (g->map.arr[(g->ply.po.y / BLOCK) + 1][g->ply.po.x / BLOCK] != '1')
 	{
-		if (g->map.arr[(g->ply.pos.y / BLOCK) - 1][g->ply.pos.x / BLOCK] != 'E')
+		if (g->map.arr[(g->ply.po.y / BLOCK) - 1][g->ply.po.x / BLOCK] != 'E')
 		{
 			g->ply.steps++;
 			print_moves(g);
 		}
-		if (g->map.arr[(g->ply.pos.y / BLOCK) + 1][g->ply.pos.x / BLOCK] == 'G')
+		if (g->map.arr[(g->ply.po.y / BLOCK) + 1][g->ply.po.x / BLOCK] == 'G')
 			die(g);
-		if (g->map.arr[(g->ply.pos.y / BLOCK) + 1][g->ply.pos.x / BLOCK] == 'C')
+		if (g->map.arr[(g->ply.po.y / BLOCK) + 1][g->ply.po.x / BLOCK] == 'C')
 		{
-			g->map.arr[(g->ply.pos.y / BLOCK) + 1][g->ply.pos.x / BLOCK] = '0';
-			g->to_collect--;			
+			g->map.arr[(g->ply.po.y / BLOCK) + 1][g->ply.po.x / BLOCK] = '0';
+			g->to_coll--;
 		}
-		if (g->map.arr[(g->ply.pos.y / BLOCK) + 1][g->ply.pos.x / BLOCK] == 'E')
+		if (g->map.arr[(g->ply.po.y / BLOCK) + 1][g->ply.po.x / BLOCK] == 'E')
 			check_exit(g);
-		if (g->map.arr[(g->ply.pos.y / BLOCK) + 1][g->ply.pos.x / BLOCK] != 'E')
+		if (g->map.arr[(g->ply.po.y / BLOCK) + 1][g->ply.po.x / BLOCK] != 'E')
 		{
-			g->empty.pos.x = g->ply.pos.x;
-			g->empty.pos.y = g->ply.pos.y;
-			g->ply.pos.y += BLOCK;
+			g->empty.po.x = g->ply.po.x;
+			g->empty.po.y = g->ply.po.y;
+			g->ply.po.y += BLOCK;
 			walk_animat(g, "sprites/pd1.xpm", "sprites/pd2.xpm");
 		}
 	}
@@ -94,27 +95,27 @@ static void	move_down(t_game *g)
 
 static void	move_right(t_game *g)
 {
-	if (g->map.arr[g->ply.pos.y / BLOCK][(g->ply.pos.x / BLOCK) + 1] != '1')
+	if (g->map.arr[g->ply.po.y / BLOCK][(g->ply.po.x / BLOCK) + 1] != '1')
 	{
-		if (g->map.arr[(g->ply.pos.y / BLOCK) - 1][g->ply.pos.x / BLOCK] != 'E')
+		if (g->map.arr[(g->ply.po.y / BLOCK) - 1][g->ply.po.x / BLOCK] != 'E')
 		{
 			g->ply.steps++;
 			print_moves(g);
 		}
-		if (g->map.arr[g->ply.pos.y / BLOCK][(g->ply.pos.x / BLOCK) + 1] == 'G')
+		if (g->map.arr[g->ply.po.y / BLOCK][(g->ply.po.x / BLOCK) + 1] == 'G')
 			die(g);
-		if (g->map.arr[g->ply.pos.y / BLOCK][(g->ply.pos.x / BLOCK) + 1] == 'C')
+		if (g->map.arr[g->ply.po.y / BLOCK][(g->ply.po.x / BLOCK) + 1] == 'C')
 		{
-			g->map.arr[g->ply.pos.y / BLOCK][(g->ply.pos.x / BLOCK) + 1] = '0';
-			g->to_collect--;
+			g->map.arr[g->ply.po.y / BLOCK][(g->ply.po.x / BLOCK) + 1] = '0';
+			g->to_coll--;
 		}
-		if (g->map.arr[g->ply.pos.y / BLOCK][(g->ply.pos.x / BLOCK) + 1] == 'E')
+		if (g->map.arr[g->ply.po.y / BLOCK][(g->ply.po.x / BLOCK) + 1] == 'E')
 			check_exit(g);
-		if (g->map.arr[g->ply.pos.y / BLOCK][(g->ply.pos.x / BLOCK) + 1] != 'E')
+		if (g->map.arr[g->ply.po.y / BLOCK][(g->ply.po.x / BLOCK) + 1] != 'E')
 		{
-			g->empty.pos.x = g->ply.pos.x;
-			g->empty.pos.y = g->ply.pos.y;
-			g->ply.pos.x += BLOCK;
+			g->empty.po.x = g->ply.po.x;
+			g->empty.po.y = g->ply.po.y;
+			g->ply.po.x += BLOCK;
 			walk_animat(g, "sprites/pr1.xpm", "sprites/pr2.xpm");
 		}
 	}
@@ -123,27 +124,27 @@ static void	move_right(t_game *g)
 
 static void	move_left(t_game *g)
 {
-	if (g->map.arr[g->ply.pos.y / BLOCK][(g->ply.pos.x / BLOCK) - 1] != '1')
+	if (g->map.arr[g->ply.po.y / BLOCK][(g->ply.po.x / BLOCK) - 1] != '1')
 	{
-		if (g->map.arr[(g->ply.pos.y / BLOCK) - 1][g->ply.pos.x / BLOCK] != 'E')
+		if (g->map.arr[(g->ply.po.y / BLOCK) - 1][g->ply.po.x / BLOCK] != 'E')
 		{
 			g->ply.steps++;
 			print_moves(g);
 		}
-		if (g->map.arr[g->ply.pos.y / BLOCK][(g->ply.pos.x / BLOCK) - 1] == 'G')
+		if (g->map.arr[g->ply.po.y / BLOCK][(g->ply.po.x / BLOCK) - 1] == 'G')
 			die(g);
-		if (g->map.arr[g->ply.pos.y / BLOCK][(g->ply.pos.x / BLOCK) - 1] == 'C')
+		if (g->map.arr[g->ply.po.y / BLOCK][(g->ply.po.x / BLOCK) - 1] == 'C')
 		{
-			g->map.arr[g->ply.pos.y / BLOCK][(g->ply.pos.x / BLOCK) - 1] = '0';
-			g->to_collect--;
+			g->map.arr[g->ply.po.y / BLOCK][(g->ply.po.x / BLOCK) - 1] = '0';
+			g->to_coll--;
 		}
-		if (g->map.arr[g->ply.pos.y / BLOCK][(g->ply.pos.x / BLOCK) - 1] == 'E')
+		if (g->map.arr[g->ply.po.y / BLOCK][(g->ply.po.x / BLOCK) - 1] == 'E')
 			check_exit(g);
-		if (g->map.arr[g->ply.pos.y / BLOCK][(g->ply.pos.x / BLOCK) - 1] != 'E')
+		if (g->map.arr[g->ply.po.y / BLOCK][(g->ply.po.x / BLOCK) - 1] != 'E')
 		{
-			g->empty.pos.x = g->ply.pos.x;
-			g->empty.pos.y = g->ply.pos.y;
-			g->ply.pos.x -= BLOCK;
+			g->empty.po.x = g->ply.po.x;
+			g->empty.po.y = g->ply.po.y;
+			g->ply.po.x -= BLOCK;
 			walk_animat(g, "sprites/pl1.xpm", "sprites/pl2.xpm");
 		}
 	}

@@ -47,10 +47,10 @@ typedef struct	s_sprite
 	int		height;
 	int		*pixels;
 	int		bpp;
-	int		line_size;
+	int		line;
 	int		endian;
 	char	type[10];
-	t_pos	pos;
+	t_pos	po;
 	int		animate;
 	int		steps;
 	int		left;
@@ -60,15 +60,15 @@ typedef struct	s_sprite
 typedef struct	s_game
 {
 	void		*mlx;
-	t_window	window;
+	t_window	win;
 	t_sprite	ply;
-	t_sprite	collect;
+	t_sprite	coll;
 	t_sprite	wall;
 	t_sprite	empty;
 	t_sprite	exit;
 	t_sprite	enemy;
 	t_map		map;
-	int			to_collect;
+	int			to_coll;
 
 }	t_game;
 

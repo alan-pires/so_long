@@ -6,24 +6,36 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 08:45:11 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/09 15:23:58 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/09 18:17:23 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long_bonus.h"
 
-void	init_imgs(t_game *game)
+void	init_imgs(t_game *g)
 {
-	game->ply.ref = mlx_xpm_file_to_image(game->mlx, PLAYER, &game->ply.width, &game->ply.height);
-	game->ply.pixels = (int *)mlx_get_data_addr(game->ply.ref, &game->ply.bpp, &game->ply.line_size, &game->ply.endian);
-	game->empty.ref = mlx_xpm_file_to_image(game->mlx, EMPTY, &game->empty.width, &game->empty.height);
-	game->empty.pixels = (int *)mlx_get_data_addr(game->empty.ref, &game->empty.bpp, &game->empty.line_size, &game->empty.endian);
-	game->wall.ref = mlx_xpm_file_to_image(game->mlx, WALL, &game->wall.width, &game->wall.height);
-	game->wall.pixels = (int *)mlx_get_data_addr(game->wall.ref, &game->wall.bpp, &game->wall.line_size, &game->wall.endian);
-	game->collect.ref = mlx_xpm_file_to_image(game->mlx, COLLECT, &game->collect.width, &game->collect.height);
-	game->collect.pixels = (int *)mlx_get_data_addr(game->collect.ref, &game->collect.bpp, &game->collect.line_size, &game->collect.endian);
-	game->exit.ref = mlx_xpm_file_to_image(game->mlx, EXIT, &game->exit.width, &game->exit.height);
-	game->exit.pixels = (int *)mlx_get_data_addr(game->exit.ref, &game->exit.bpp, &game->exit.line_size, &game->exit.endian);
-	game->enemy.ref = mlx_xpm_file_to_image(game->mlx, ENEMY, &game->enemy.width, &game->enemy.height);
-	game->enemy.pixels = (int *)mlx_get_data_addr(game->enemy.ref, &game->enemy.bpp, &game->enemy.line_size, &game->enemy.endian);
+	g->ply.ref = mlx_xpm_file_to_image(
+			g->mlx, PLAYER, &g->ply.width, &g->ply.height);
+	g->ply.pixels = (int *)mlx_get_data_addr(
+			g->ply.ref, &g->ply.bpp, &g->ply.line, &g->ply.endian);
+	g->empty.ref = mlx_xpm_file_to_image(
+			g->mlx, EMPTY, &g->empty.width, &g->empty.height);
+	g->empty.pixels = (int *)mlx_get_data_addr(
+			g->empty.ref, &g->empty.bpp, &g->empty.line, &g->empty.endian);
+	g->wall.ref = mlx_xpm_file_to_image(
+			g->mlx, WALL, &g->wall.width, &g->wall.height);
+	g->wall.pixels = (int *)mlx_get_data_addr(
+			g->wall.ref, &g->wall.bpp, &g->wall.line, &g->wall.endian);
+	g->coll.ref = mlx_xpm_file_to_image(
+			g->mlx, COLLECT, &g->coll.width, &g->coll.height);
+	g->coll.pixels = (int *)mlx_get_data_addr(
+			g->coll.ref, &g->coll.bpp, &g->coll.line, &g->coll.endian);
+	g->exit.ref = mlx_xpm_file_to_image(
+			g->mlx, EXIT, &g->exit.width, &g->exit.height);
+	g->exit.pixels = (int *)mlx_get_data_addr(
+			g->exit.ref, &g->exit.bpp, &g->exit.line, &g->exit.endian);
+	g->enemy.ref = mlx_xpm_file_to_image(
+			g->mlx, ENEMY, &g->enemy.width, &g->enemy.height);
+	g->enemy.pixels = (int *)mlx_get_data_addr(
+			g->enemy.ref, &g->enemy.bpp, &g->enemy.line, &g->enemy.endian);
 }

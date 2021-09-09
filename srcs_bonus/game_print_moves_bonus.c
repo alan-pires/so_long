@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 12:57:37 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/09 15:02:00 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/09 18:15:24 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ void	print_moves(t_game *g)
 	moves = ft_itoa(g->ply.steps);
 	if (!moves)
 		exit_err(g, "Something went wrong with memory allocation.");
-	mlx_put_image_to_window(g->mlx, g->window.ref, g->wall.ref, 0, 0);
-	mlx_put_image_to_window(g->mlx, g->window.ref, g->wall.ref, 50, 0);
-	mlx_string_put(g->mlx, g->window.ref, 10, 15, 0xFF0000,
+	mlx_put_image_to_window(g->mlx, g->win.ref, g->wall.ref, 0, 0);
+	mlx_put_image_to_window(g->mlx, g->win.ref, g->wall.ref, 50, 0);
+	mlx_string_put(g->mlx, g->win.ref, 10, 15, 0xFF0000,
 		"STEPS: ");
-	mlx_string_put(g->mlx, g->window.ref, 50, 15, 0xFF0000,
+	mlx_string_put(g->mlx, g->win.ref, 50, 15, 0xFF0000,
 		moves);
 	free(moves);
 }

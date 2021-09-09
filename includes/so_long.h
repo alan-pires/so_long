@@ -46,10 +46,10 @@ typedef struct	s_sprite
 	int		height;
 	int		*pixels;
 	int		bpp;
-	int		line_size;
-	int		endian;
+	int		line;
+	int		end;
 	char	type[10];
-	t_pos	pos;
+	t_pos	po;
 	int		animate;
 
 }	t_sprite;
@@ -57,7 +57,7 @@ typedef struct	s_sprite
 typedef struct	s_game
 {
 	void		*mlx;
-	t_window	window;
+	t_window	win;
 	t_sprite	ply;
 	t_sprite	collect;
 	t_sprite	wall;
