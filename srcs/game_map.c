@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 12:06:30 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/08 16:16:14 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/09 17:54:27 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	check_map(t_game *game, char **argv)
 	return (0);
 }
 
-static int	init_lc(t_game *game, char **argv) // funçao que estava funcionando
+static int	init_lc(t_game *game, char **argv)
 {
 	char	*line;
 	int		i;
@@ -84,7 +84,7 @@ static int	check_imgtypes(t_game *game)
 	return (1);
 }
 
-static int	hastype(t_game *game, char type) // dar os frees necessários
+static int	hastype(t_game *game, char type)
 {
 	int		i;
 	int		res;
@@ -93,7 +93,7 @@ static int	hastype(t_game *game, char type) // dar os frees necessários
 	res = 0;
 	while (i < game->map.lines)
 	{
-		if(ft_strchr(game->map.arr[i], type) != NULL)
+		if (ft_strchr(game->map.arr[i], type) != NULL)
 			res++;
 		i++;
 	}

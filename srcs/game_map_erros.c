@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 21:55:43 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/09 15:42:33 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/09 17:56:30 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	check_sprites(t_game *game);
 void	check_map_errors(t_game *game)
 {
 	size_t	aux;
-	int	i;
+	int		i;
 
 	i = 0;
 	aux = ft_strlen(game->map.arr[0]);
@@ -39,7 +39,7 @@ void	check_map_errors(t_game *game)
 static void	check_wall_erros(t_game *game)
 {
 	int	i;
-	
+
 	i = 1;
 	check_updown(game, game->map.arr[0]);
 	while (i < game->map.lines - 1)
@@ -52,8 +52,8 @@ static void	check_wall_erros(t_game *game)
 
 static void	check_wall(t_game *game, char *line)
 {
-	int i;
-	int err;
+	int	i;
+	int	err;
 
 	i = 1;
 	err = 0;
@@ -69,7 +69,7 @@ static void	check_wall(t_game *game, char *line)
 
 static void	check_updown(t_game *game, char *line)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (line[i])
@@ -94,7 +94,7 @@ static void	check_sprites(t_game *game)
 			if (game->map.arr[i][j] != '1' && game->map.arr[i][j] != '0'
 				&& game->map.arr[i][j] != 'P' && game->map.arr[i][j] != 'C'
 				&& game->map.arr[i][j] != 'E')
-					exit_err(game, "Invalid map.");
+				exit_err(game, "Invalid map.");
 			j++;
 		}
 		i++;
