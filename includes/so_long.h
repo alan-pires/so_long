@@ -39,7 +39,7 @@ typedef struct s_window
 	int		y;
 }	t_window;
 
-typedef struct	s_sprite
+typedef struct s_sprite
 {
 	void	*ref;
 	int		width;
@@ -54,7 +54,7 @@ typedef struct	s_sprite
 
 }	t_sprite;
 
-typedef struct	s_game
+typedef struct s_game
 {
 	void		*mlx;
 	t_window	win;
@@ -81,4 +81,4 @@ void	free_map(t_game *game);
 void	exit_err(t_game *game, char *msg);
 int		exit_game(t_game *game);
 
-# endif
+#endif

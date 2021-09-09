@@ -1,7 +1,6 @@
 #ifndef LIBFT_H
 # define	LIBFT_H
 # include <stdlib.h>
-// # include <string.h>
 # include <unistd.h>
 
 # define BUFFER_SIZE 1
@@ -61,6 +60,5 @@ void	ft_int_to_hex(int nbr);
 int		ft_len_uns_nbr(unsigned int n);
 char	*ft_strncpy(char *dest, const char *src, size_t n);
 int		get_next_line(int fd, char **line);
-
 
 #endif

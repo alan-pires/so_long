@@ -40,7 +40,7 @@ typedef struct s_window
 	int		y;
 }	t_window;
 
-typedef struct	s_sprite
+typedef struct s_sprite
 {
 	void	*ref;
 	int		width;
@@ -57,7 +57,7 @@ typedef struct	s_sprite
 
 }	t_sprite;
 
-typedef struct	s_game
+typedef struct s_game
 {
 	void		*mlx;
 	t_window	win;
@@ -87,4 +87,4 @@ int		enemy_move(t_game *g, t_sprite *e);
 void	print_moves(t_game *game);
 void	die(t_game *game);
 
-# endif
+#endif
