@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 21:55:43 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/09 07:57:53 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/09 08:09:22 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,9 +92,9 @@ static void	check_sprites(t_game *game)
 		j = 0;
 		while (j < game->map.cols)
 		{
-			if (game->map.arr[i][j] != '1' || game->map.arr[i][j] != '0'
-				|| game->map.arr[i][j] != 'P' || game->map.arr[i][j] != 'C'
-				|| game->map.arr[i][j] != 'E')
+			if (game->map.arr[i][j] != '1' && game->map.arr[i][j] != '0'
+				&& game->map.arr[i][j] != 'P' && game->map.arr[i][j] != 'C'
+				&& game->map.arr[i][j] != 'E' && game->map.arr[i][j] != 'G')
 					exit_err(game, "Invalid map.");
 			j++;
 		}

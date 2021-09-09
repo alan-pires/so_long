@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 11:46:26 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/09 08:01:04 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/09 12:33:52 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ void	game_start(t_game *game, int argc, char **argv)
 
 static void	init_opt(t_game *game)
 {
-	game->steps = 0;
+	game->ply.steps = 0;
+	game->enemy.left = 0;
 	game->to_collect = 0;
 	game->ply.animate = 0;
 	game->map.arr = NULL;
@@ -57,6 +58,11 @@ static void	init_position(t_game *game)
 			{
 				game->ply.pos.x = i;
 				game->ply.pos.y = j;
+			}
+			if (game->map.arr[i][j] == 'G')
+			{
+				game->enemy.pos.x = i;
+				game->enemy.pos.y = j;
 			}
 			if (game->map.arr[i][j] == 'C')
 				game->to_collect++;

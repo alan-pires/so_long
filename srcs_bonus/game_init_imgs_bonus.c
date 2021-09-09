@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 08:45:11 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/08 17:19:43 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/09 12:39:52 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,6 @@ void	init_imgs(t_game *game)
 	game->collect.pixels = (int *)mlx_get_data_addr(game->collect.ref, &game->collect.bpp, &game->collect.line_size, &game->collect.endian);
 	game->exit.ref = mlx_xpm_file_to_image(game->mlx, EXIT, &game->exit.width, &game->exit.height);
 	game->exit.pixels = (int *)mlx_get_data_addr(game->exit.ref, &game->exit.bpp, &game->exit.line_size, &game->exit.endian);
+	game->enemy.ref = mlx_xpm_file_to_image(game->mlx, ENEMY, &game->enemy.width, &game->enemy.height);
+	game->enemy.pixels = (int *)mlx_get_data_addr(game->enemy.ref, &game->enemy.bpp, &game->enemy.line_size, &game->enemy.endian);
 }

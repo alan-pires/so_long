@@ -11,6 +11,7 @@
 # define EXIT "sprites/exit.xpm"
 # define COLLECT "sprites/collect.xpm"
 # define WALL "sprites/wall.xpm"
+# define ENEMY "sprites/gengar.xpm"
 # define ESC 0xff1b
 # define RIGHT 0x64
 # define LEFT 0x61
@@ -51,6 +52,8 @@ typedef struct	s_sprite
 	char	type[10];
 	t_pos	pos;
 	int		animate;
+	int		steps;
+	int		left;
 
 }	t_sprite;
 
@@ -63,9 +66,9 @@ typedef struct	s_game
 	t_sprite	wall;
 	t_sprite	empty;
 	t_sprite	exit;
+	t_sprite	enemy;
 	t_map		map;
 	int			to_collect;
-	int			steps;
 
 }	t_game;
 
@@ -80,5 +83,7 @@ void	walk_animat(t_game *g, char *img1, char *img2);
 void	free_map(t_game *game);
 void	exit_err(t_game *game, char *msg);
 int		exit_game(t_game *game);
+int		enemy_move(t_game *g);
+void	print_moves(t_game *game);
 
 # endif
