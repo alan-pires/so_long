@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 14:26:08 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/09 18:20:50 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/09 19:46:32 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ static void	move_up(t_game *g)
 			walk_animat(g, "sprites/pu1.xpm", "sprites/pu2.xpm");
 		}
 	}
-	enemy_move(g, &g->enemy);
 }
 
 static void	move_down(t_game *g)
@@ -90,7 +89,6 @@ static void	move_down(t_game *g)
 			walk_animat(g, "sprites/pd1.xpm", "sprites/pd2.xpm");
 		}
 	}
-	enemy_move(g, &g->enemy);
 }
 
 static void	move_right(t_game *g)
@@ -119,7 +117,6 @@ static void	move_right(t_game *g)
 			walk_animat(g, "sprites/pr1.xpm", "sprites/pr2.xpm");
 		}
 	}
-	enemy_move(g, &g->enemy);
 }
 
 static void	move_left(t_game *g)
@@ -148,5 +145,4 @@ static void	move_left(t_game *g)
 			walk_animat(g, "sprites/pl1.xpm", "sprites/pl2.xpm");
 		}
 	}
-	enemy_move(g, &g->enemy);
 }

@@ -32,10 +32,8 @@ BONUS_SRC = $(BONUS_SRC_DIR)/main_bonus.c\
 		$(BONUS_SRC_DIR)/game_utils_bonus.c\
 		$(BONUS_SRC_DIR)/game_map_erros_bonus.c\
 		$(BONUS_SRC_DIR)/game_animation_bonus.c\
-		$(BONUS_SRC_DIR)/game_enemy_bonus.c\
 		$(BONUS_SRC_DIR)/game_print_moves_bonus.c
 
-		
 INCLUDE_DIR = includes
 INCLUDE = includes/so_long.h
 BONUS_INCLUDE = includes/so_long_bonus.h
