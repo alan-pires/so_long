@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 16:20:37 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/09 07:59:13 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/09 15:34:31 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	check_exit(t_game *game)
 	if (game->to_collect == 0)
 	{
 		free_map(game);
-		printf("ganhou!\n");
+		printf("\nYou won!\n\n");
 		exit(0);
 	}
 }
@@ -49,6 +49,13 @@ void	exit_err(t_game *game, char *msg)
 
 int	exit_game(t_game *game)
 {
+	free_map(game);
+	exit(0);
+}
+
+void	die(t_game *game)
+{
+	printf("\nYou were killed by the enemy :/\n\n");
 	free_map(game);
 	exit(0);
 }

@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game_print_moves.c                                 :+:      :+:    :+:   */
+/*   game_print_moves_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 12:57:37 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/09 13:04:08 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/09 15:02:00 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long_bonus.h"
 
-void	print_moves(t_game *game)
+void	print_moves(t_game *g)
 {
 	char	*moves;
-	//char	*aux;
 
-	//aux = malloc()
-	moves = ft_itoa(game->ply.steps);
+	moves = ft_itoa(g->ply.steps);
 	if (!moves)
-		exit_err(game, "Something went wrong with memory allocation.");
-	mlx_string_put(game->mlx, game->window.ref, 20, 15, 0xff6700,
+		exit_err(g, "Something went wrong with memory allocation.");
+	mlx_put_image_to_window(g->mlx, g->window.ref, g->wall.ref, 0, 0);
+	mlx_put_image_to_window(g->mlx, g->window.ref, g->wall.ref, 50, 0);
+	mlx_string_put(g->mlx, g->window.ref, 10, 15, 0xFF0000,
+		"STEPS: ");
+	mlx_string_put(g->mlx, g->window.ref, 50, 15, 0xFF0000,
 		moves);
 	free(moves);
 }
