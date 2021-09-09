@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 17:51:17 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/09 16:13:24 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/09 18:57:02 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ static void	check_sprite(t_game *game, char sprite, t_pos pos)
 
 static void	display_sprite(t_game *game, t_sprite *sprite, t_pos pos)
 {
-	sprite->pos.x = pos.x * BLOCK;
-	sprite->pos.y = pos.y * BLOCK;
+	sprite->po.x = pos.x * BLOCK;
+	sprite->po.y = pos.y * BLOCK;
 	mlx_put_image_to_window(
-		game->mlx, game->win.ref, sprite->ref, sprite->pos.x, sprite->pos.y);
+		game->mlx, game->win.ref, sprite->ref, sprite->po.x, sprite->po.y);
 }
