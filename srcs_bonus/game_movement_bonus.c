@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 14:26:08 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/09 19:46:32 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/09 20:57:31 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static void	move_down(t_game *g)
 {
 	if (g->map.arr[(g->ply.po.y / BLOCK) + 1][g->ply.po.x / BLOCK] != '1')
 	{
-		if (g->map.arr[(g->ply.po.y / BLOCK) - 1][g->ply.po.x / BLOCK] != 'E')
+		if (g->map.arr[(g->ply.po.y / BLOCK) + 1][g->ply.po.x / BLOCK] != 'E')
 		{
 			g->ply.steps++;
 			print_moves(g);
@@ -95,7 +95,7 @@ static void	move_right(t_game *g)
 {
 	if (g->map.arr[g->ply.po.y / BLOCK][(g->ply.po.x / BLOCK) + 1] != '1')
 	{
-		if (g->map.arr[(g->ply.po.y / BLOCK) - 1][g->ply.po.x / BLOCK] != 'E')
+		if (g->map.arr[g->ply.po.y / BLOCK][(g->ply.po.x / BLOCK) + 1] != 'E')
 		{
 			g->ply.steps++;
 			print_moves(g);
@@ -123,7 +123,7 @@ static void	move_left(t_game *g)
 {
 	if (g->map.arr[g->ply.po.y / BLOCK][(g->ply.po.x / BLOCK) - 1] != '1')
 	{
-		if (g->map.arr[(g->ply.po.y / BLOCK) - 1][g->ply.po.x / BLOCK] != 'E')
+		if (g->map.arr[g->ply.po.y / BLOCK][(g->ply.po.x / BLOCK) - 1] != 'E')
 		{
 			g->ply.steps++;
 			print_moves(g);
