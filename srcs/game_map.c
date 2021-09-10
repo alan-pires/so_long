@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 12:06:30 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/09 23:37:41 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/10 00:06:01 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ static int	init_lc(t_game *game, char **argv)
 	int		len;
 
 	fd = open(argv[1], O_RDONLY);
-	if (!fd)
-		exit(0);
+	if (fd < 0)
+		exit_err(game, "A valid file was not found");
 	i = 0;
 	while (get_next_line(fd, &line))
 	{
