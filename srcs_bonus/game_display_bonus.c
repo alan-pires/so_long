@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 17:51:17 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/10 14:32:09 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/10 17:52:21 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,18 @@ static void	display_sprite(t_game *game, t_sprite *sprite, t_pos pos)
 	sprite->po.y = pos.y * BLOCK;
 	mlx_put_image_to_window(
 		game->mlx, game->win, sprite->ref, sprite->po.x, sprite->po.y);
+}
+
+int	display_expose(t_game *game)
+{
+	t_pos	aux;
+
+	aux.x = game->ply.po.x;
+	aux.y = game->ply.po.y;
+	game_display(game);
+	game->ply.po.x = aux.x;
+	game->ply.po.y = aux.y;
+	mlx_put_image_to_window(
+		game->mlx, game->win, game->ply.ref, game->ply.po.x, game->ply.po.y);
+	return (0);
 }

@@ -79,5 +79,6 @@ int		exit_game(t_game *game);
 int		enemy_move(t_game *g, t_sprite *e);
 void	print_moves(t_game *game);
 void	die(t_game *game);
+int		display_expose(t_game *game);
 
 #endif

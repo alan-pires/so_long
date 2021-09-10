@@ -73,5 +73,6 @@ void	walk_animat(t_game *g, char *img1, char *img2);
 void	free_map(t_game *game);
 void	exit_err(t_game *game, char *msg);
 int		exit_game(t_game *game);
+int		display_expose(t_game *game);
 
 #endif
