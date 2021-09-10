@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 12:06:30 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/09 18:21:05 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/09 23:39:27 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	check_map(t_game *game, char **argv)
 	}
 	close(fd);
 	if (check_imgtypes(game) == 0)
-		exit_err(game, "Map needs to contain all necessary sprites");
+		exit_err(game, "Invalid Map!");
 	check_map_errors(game);
 	return (0);
 }
@@ -79,7 +79,7 @@ static int	check_imgtypes(t_game *game)
 {
 	if (hastype(game, '1') == 0 || hastype(game, '0') == 0
 		|| hastype(game, 'C') == 0 || hastype(game, 'E') == 0
-		|| hastype(game, 'P') == 0 || hastype(game, 'G') == 0)
+		|| hastype(game, 'P') != 1 || hastype(game, 'G') == 0)
 		return (0);
 	return (1);
 }
