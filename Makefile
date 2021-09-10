@@ -64,7 +64,7 @@ $(MLX):
 	make -C $(MLX_DIR)
 
 bonus: $(LIBFT) $(MLX) $(BONUS_OBJ)
-	$(CC) -lm $(BONUS_OBJ) $(LIBFT) -L$(MLX_DIR) $(MLX_FLAGS) $(SANITIZE) -o $(NAME)
+	$(CC) $(BONUS_OBJ) $(LIBFT) -L$(MLX_DIR) $(MLX_FLAGS) $(SANITIZE) -o $(NAME)
 
 run: all
 	./$(NAME)
