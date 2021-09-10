@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 11:46:26 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/09 18:19:57 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/09 23:07:48 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ static void	check_args(int argc, char **argv)
 	i = 0;
 	if (argc != 2)
 	{
+		printf("Error\n");
 		printf("Wrong number of arguments. You must input a map.ber file.\n");
 		exit(0);
 	}
@@ -89,7 +90,9 @@ static void	check_args(int argc, char **argv)
 	aux = ft_substr(argv[1], i, 4);
 	if (ft_strncmp(aux, ".ber", 4) != 0)
 	{
+		printf("Error\n");
 		printf("You must enter a .ber file to be read\n");
+		free(aux);
 		exit(0);
 	}
 	free(aux);
