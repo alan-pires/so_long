@@ -33,13 +33,6 @@ typedef struct s_map
 
 }	t_map;
 
-typedef struct s_window
-{
-	void	*ref;
-	int		x;
-	int		y;
-}	t_window;
-
 typedef struct s_sprite
 {
 	void	*ref;
@@ -60,7 +53,7 @@ typedef struct s_sprite
 typedef struct s_game
 {
 	void		*mlx;
-	t_window	win;
+	void		*win;
 	t_sprite	ply;
 	t_sprite	coll;
 	t_sprite	wall;

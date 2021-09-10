@@ -6,11 +6,14 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 17:51:17 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/10 14:17:34 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/10 14:30:12 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+
+static int	display_sprite(t_game *game, t_sprite *sprite, t_pos pos);
+static int	check_sprite(t_game *game, char sprite, t_pos pos);
 
 int	game_display(t_game *game)
 {
@@ -34,7 +37,7 @@ int	game_display(t_game *game)
 	return (0);
 }
 
-int	check_sprite(t_game *game, char sprite, t_pos pos)
+static int	check_sprite(t_game *game, char sprite, t_pos pos)
 {
 	if (sprite == '1')
 		display_sprite(game, &game->wall, pos);
@@ -49,11 +52,11 @@ int	check_sprite(t_game *game, char sprite, t_pos pos)
 	return (0);
 }
 
-int	display_sprite(t_game *game, t_sprite *sprite, t_pos pos)
+static int	display_sprite(t_game *game, t_sprite *sprite, t_pos pos)
 {
 	sprite->po.x = pos.x * BLOCK;
 	sprite->po.y = pos.y * BLOCK;
 	mlx_put_image_to_window(
-		game->mlx, game->win.ref, sprite->ref, sprite->po.x, sprite->po.y);
+		game->mlx, game->win, sprite->ref, sprite->po.x, sprite->po.y);
 	return (0);
 }

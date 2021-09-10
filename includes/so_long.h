@@ -32,13 +32,6 @@ typedef struct s_map
 
 }	t_map;
 
-typedef struct s_window
-{
-	void	*ref;
-	int		x;
-	int		y;
-}	t_window;
-
 typedef struct s_sprite
 {
 	void	*ref;
@@ -57,7 +50,7 @@ typedef struct s_sprite
 typedef struct s_game
 {
 	void		*mlx;
-	t_window	win;
+	void		*win;
 	t_sprite	ply;
 	t_sprite	collect;
 	t_sprite	wall;
@@ -80,7 +73,5 @@ void	walk_animat(t_game *g, char *img1, char *img2);
 void	free_map(t_game *game);
 void	exit_err(t_game *game, char *msg);
 int		exit_game(t_game *game);
-int		display_sprite(t_game *game, t_sprite *sprite, t_pos pos);
-int		check_sprite(t_game *game, char sprite, t_pos pos);
 
 #endif

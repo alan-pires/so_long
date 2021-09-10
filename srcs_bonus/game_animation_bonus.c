@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 11:16:58 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/09 18:17:49 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/10 14:32:00 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	walk_animat(t_game *g, char *img1, char *img2)
 {
 	mlx_put_image_to_window(
-		g->mlx, g->win.ref, g->empty.ref, g->empty.po.x, g->empty.po.y);
+		g->mlx, g->win, g->empty.ref, g->empty.po.x, g->empty.po.y);
 	if (g->ply.animate % 2 == 0)
 	{
 		mlx_destroy_image(g->mlx, g->ply.ref);
@@ -34,5 +34,5 @@ void	walk_animat(t_game *g, char *img1, char *img2)
 	}
 	g->ply.animate++;
 	mlx_put_image_to_window(
-		g->mlx, g->win.ref, g->ply.ref, g->ply.po.x, g->ply.po.y);
+		g->mlx, g->win, g->ply.ref, g->ply.po.x, g->ply.po.y);
 }
