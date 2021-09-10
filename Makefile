@@ -47,7 +47,7 @@ BONUS_OBJ = $(BONUS_SRC:$(BONUS_SRC_DIR)/%.c=$(BONUS_OBJ_DIR)/%.o)
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(MLX) $(OBJ)
-	$(CC) -lm $(OBJ) $(LIBFT) -L$(MLX_DIR) $(MLX_FLAGS) $(SANITIZE) -o $(NAME)
+	$(CC) $(OBJ) $(LIBFT) -L$(MLX_DIR) $(MLX_FLAGS) $(SANITIZE) -o $(NAME)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INCLUDE)
 	mkdir -p $(OBJ_DIR)
