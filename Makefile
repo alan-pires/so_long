@@ -58,7 +58,7 @@ $(BONUS_OBJ_DIR)/%.o: $(BONUS_SRC_DIR)/%.c $(BONUS_INCLUDE)
 	$(CC) -c $(CFLAGS) -I$(INCLUDE_DIR) -o $@ $<
 
 $(LIBFT):
-	make bonus -C $(LIBFT_DIR)
+	make -C $(LIBFT_DIR)
 
 $(MLX):
 	make -C $(MLX_DIR)
