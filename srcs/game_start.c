@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 11:46:26 by apires-d          #+#    #+#             */
-/*   Updated: 2021/09/09 23:05:29 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/09/10 14:00:49 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	game_start(t_game *game, int argc, char **argv)
 	init_imgs(game);
 	game_display(game);
 	mlx_key_hook(game->win.ref, ft_move, game);
+	mlx_expose_hook(game->wall.ref, game_display, game);
 	mlx_hook(game->win.ref, EXIT_GAME, 0, exit_game, game);
 	mlx_loop(game->mlx);
 	mlx_destroy_window(game->mlx, game->win.ref);
